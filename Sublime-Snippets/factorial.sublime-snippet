@@ -1,0 +1,76 @@
+<snippet>
+	<content><![CDATA[
+/******************************************
+* AUTHOR : AMAN SAXENA *
+* "There's some good in this world, and it's worth fighting for." *
+* INSTITUTION : KIET Group of Institutions *
+******************************************/
+#include <bits/stdc++.h>
+
+const long long MODULO=1000000007;
+#define FOR(i,a,n) for(int i=a;i<n;i++)
+#define FOR1(i,a,n) for(int i=a;i<=n;i++)
+#define FOR2(i,a,n) for(int i=a;i>=n;i--)
+#define pb push_back
+#define mp make_pair
+#define ll long long 
+#define ull unsigned long long
+#define rep(i, begin, end) for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
+#define MAX 5000
+
+using namespace std;
+
+template <typename TYPE> void in(TYPE &x){cin>>x;}
+
+int a[MAX];
+
+int multiply(ll x, int a[], ll s)
+{
+	ll carry=0;
+	FOR(i,0,s)
+	{
+		ll product=a[i]*x + carry;
+		a[i]=product%10;
+		carry=product/10;
+	}
+	while(carry)
+	{
+		a[s]=carry%10;
+		carry/=10;
+		s++;
+	}
+	return s;
+}
+
+void solve(ll n)
+{
+	a[0]=1;
+	ll s=1;
+	FOR(i,2,n+1)
+	{
+		s=multiply(i,a,s);
+	}
+	FOR2(i,s-1,0)
+	{
+		cout << a[i] ;
+	}
+	cout << '\n';
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+	
+	ll n;
+	cin>>n;
+	solve(n);
+	return 0;
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>factorial</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

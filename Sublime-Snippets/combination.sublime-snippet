@@ -1,0 +1,87 @@
+<snippet>
+	<content><![CDATA[
+/******************************************
+* AUTHOR : AMAN SAXENA *
+* "There's some good in this world, and it's worth fighting for." *
+* INSTITUTION : KIET Group of Institutions *
+******************************************/
+#include <bits/stdc++.h>
+
+using namespace std;
+#define pb push_back
+#define ll long long
+const int MAXN=1000005;
+#define mod 999983 //1000000007
+
+ll int fact[MAXN], ifact[MAXN];
+ll int power(ll int x,ll int y,ll int m)
+{
+    if (y == 0)
+        return 1;
+    ll int p = power(x, y/2, m) % m;
+    p = (p * p) % m;
+ 
+    return (y%2 == 0)? p : (x * p) % m;
+}
+
+ll int nCr(ll int n, ll int k)
+{
+    if (k > n)
+        return 0;
+    
+    if (n < mod)
+    {
+        ll int res = fact[n];
+        res = (res * ifact[k]) % mod;
+        res = (res * ifact[n - k]) % mod;
+        return res;
+    }
+    
+    vector<ll int> N, K;
+    while(n)
+    {
+        N.push_back(n % mod);
+        n /= mod;
+    }
+    
+    while(k)
+    {
+        K.push_back(k % mod);
+        k /= mod;       
+    }
+    
+    ll int res = 1;
+    for(ll int i = 0; i < K.size(); i++)
+        res = (res * nCr(N[i], K[i])) % mod;
+    
+    return res;
+}
+ 
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
+    fact[0] = 1;
+    for(ll i = 1; i < MAXN; i++)
+        fact[i] = (i * fact[i - 1]) % mod;
+    for(ll i = 0; i < MAXN; i++)
+        ifact[i] = power(fact[i], mod - 2, mod);
+	
+	int t;
+	cin>>t;
+	while(t--) //for(int j=1;j<=t;j++) cout << "Case #" << j << ": ";
+	{
+		ll x,y;
+		cin>>x>>y;
+		ll ans= nCr(x,y)%mod;
+		cout << ans << '\n';
+	}
+	return 0;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>combination</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

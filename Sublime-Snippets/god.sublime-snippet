@@ -1,0 +1,55 @@
+<snippet>
+	<content><![CDATA[
+/******************************************
+* AUTHOR : AMAN SAXENA *
+* "There's some good in this world, and it's worth fighting for." *
+* INSTITUTION : KIET Group of Institutions *
+******************************************/
+#include <bits/stdc++.h>
+
+const long long MODULO=1000000007;
+#define FOR(i,a,n) for(int i=a;i<n;i++)
+#define FOR1(i,a,n) for(int i=a;i<=n;i++)
+#define FOR2(i,a,n) for(int i=a;i>=n;i--)
+#define pb push_back
+#define mp make_pair
+#define ll long long 
+#define ull unsigned long long
+#define rep(i, begin, end) for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
+#define pi 3.14159265359
+
+using namespace std;
+
+template <typename TYPE> void in(TYPE &x){cin>>x;}
+
+void solve()
+{
+    
+}
+
+void test()
+{
+    int t;
+    cin>>t;
+    while(t--) //for(int j=1;j<=t;j++) cout << "Case #" << j << ": ";
+    {
+        solve();
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
+    test();
+    // solve();
+    
+    return 0;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>god</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
